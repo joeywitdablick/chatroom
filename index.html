@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Code Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Collaborative Code Chat</h1>
+            <div class="user-info">
+                <input type="text" id="username-input" placeholder="Your username">
+                <button id="set-username-btn">Set Username</button>
+            </div>
+        </header>
+        
+        <main>
+            <div class="code-section">
+                <h2>Shared Code</h2>
+                <div class="code-header">
+                    <select id="language-select">
+                        <option value="javascript">JavaScript</option>
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="python">Python</option>
+                        <option value="java">Java</option>
+                    </select>
+                    <button id="run-code-btn">Run Code</button>
+                </div>
+                <pre><code id="code-display" class="language-javascript"></code></pre>
+                <textarea id="code-editor"></textarea>
+                <div id="code-output"></div>
+            </div>
+            
+            <div class="chat-section">
+                <h2>Chat</h2>
+                <div id="chat-messages"></div>
+                <div class="chat-input-area">
+                    <textarea id="chat-input" placeholder="Type your message here. Use /code to update the shared code."></textarea>
+                    <button id="send-btn">Send</button>
+                </div>
+            </div>
+        </main>
+        
+        <div id="users-online">
+            <h3>Users Online: <span id="user-count">0</span></h3>
+            <ul id="user-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
